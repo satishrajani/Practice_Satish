@@ -16,6 +16,12 @@ public class homePage {
     @FindBy(how = How.ID , using = "btnSignUp")
     WebElement signUpButton;
 
+    @FindBy(how=How.class,using="img-block")
+    WebElement imageBox;
+
+    @FindBy(how=How.class,using="goToTop")
+    WebElement topIcon;
+
     void emailId_is_present()
     {
         emailIdEditbox.isDisplayed();
@@ -40,6 +46,18 @@ public class homePage {
     {
         signUpButton.isDisplayed();
     }
+    
+   void scrolldown_to_element(WebDriver driver)
+   {
+    JavascriptExecutor js = (JavascriptExecutor) driver;
+	
+    js.executeScript("arguments[0].scrollIntoView();", imageBox);
+   }
 
+   boolean top_is_present()
+   {
+return topIcon.isDisplayed();
+   }
+   
 
 }

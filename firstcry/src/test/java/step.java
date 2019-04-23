@@ -22,10 +22,14 @@ public void setUp()
     {
         driver.get(url);
         homePage homePage=PageFactory.initElements(driver,homePage.class);
+        /*
         homePage.emailId_is_present();
         Assert.assertTrue( homePage.mobileprefixEditbox_has_default_value("91"));
         homePage.mobileEditbox_is_present();
         homePage.signUpButton_is_present();
-   ;
+        */
+        homePage.scrolldown_to_element(driver);
+        Assert.assertTrue(homePage.top_is_present());
+   
     }
 }
