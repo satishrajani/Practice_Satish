@@ -15,9 +15,20 @@
     </properties>
     <build>
         <plugins>
+        
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M3</version>
+                <!-- for parallel testing -->
+                <configuration>
+                <parallel>classes</parallel>
+                <threadCount>2</threadCount>
+             <includes>
+                <include>**/*Runner.java</include>
+                </includes>
+                </configuration>
+                
             </plugin>
             <plugin>
                        <groupId>org.apache.maven.plugins</groupId>
@@ -76,6 +87,13 @@
  <artifactId>cucumber-extentsreport</artifactId>
  <version>3.0.2</version>
 </dependency>
+<!-- for parallel testing -->
+<dependency>
+    <groupId>com.github.temyers</groupId>
+    <artifactId>cucumber-jvm-parallel-plugin</artifactId>
+    <version>5.0.0</version>
+</dependency>
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
